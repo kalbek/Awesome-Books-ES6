@@ -1,3 +1,4 @@
+import { removeBooks } from "./removeBooks.js";
 export const createBookList = (bookList, books) => {
   bookList.innerHTML = "";
   books.forEach((book) => {
@@ -18,12 +19,12 @@ export const createBookList = (bookList, books) => {
         `;
   });
   books.forEach((book) => {
-    // for every remove button of the book list html element
+    // create an event listener for every newly created remove button
     const removeButton = document.getElementById(book.id.toString());
     if (removeButton !== null) {
       removeButton.addEventListener("click", () => {
         const bookId = Number(book.id);
-        removeBooks(Books, bookId, books, bookList);
+        removeBooks(bookId, books, bookList);
       });
     }
   });

@@ -1,4 +1,3 @@
-import { removeBooks } from "./modules/removeBooks.js";
 import { addBooks } from "./modules/addBooks.js";
 let books = [];
 const addButton = document.getElementById("add-books");
@@ -89,9 +88,7 @@ contact.addEventListener("click", () => {
 });
 //   handle button click event for add books
 addButton.addEventListener("click", (e) => {
-  alert("ddd")
   addBooks(titles, authors, books, bookList);
-  alert("ddd-2")
   titles.value = "";
   authors.value = "";
   e.preventDefault();
