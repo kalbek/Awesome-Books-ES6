@@ -1,6 +1,7 @@
 import Book from "./modules/Book.js";
 import { createBookList } from "./modules/createBookList.js";
 import { handleSelections } from "./modules/handleSelections.js";
+import { DateTime } from "./modules/luxon.js";
 const addButton = document.getElementById("add-books");
 const bookList = document.querySelector(".book-list");
 const titles = document.getElementById("titles");
@@ -28,16 +29,10 @@ addButton.addEventListener("click", (e) => {
 });
 
 // display date and time
-let date = new Date();
-let time = new Date();
-const dateSection = document.getElementById("dates");
-const timeSection = document.getElementById("time");
-date = date.toDateString();
-time = time.toLocaleTimeString();
-dateSection.innerHTML = date;
-timeSection.innerHTML = time;
+let dateTime = DateTime.now();
+document.getElementById("dates").innerHTML = dateTime.toLocaleString(DateTime.DATETIME_MED);
 
-// // preserve data on browsers on page load
+// preserve data on browsers on page load
 window.onload = () => {
   createBookList(bookList);
 };
