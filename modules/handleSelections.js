@@ -7,7 +7,6 @@ export const handleSelections = (item) => {
   const list = document.getElementById('list');
   const add = document.getElementById('add');
   const contact = document.getElementById('contact');
-  // console.log(item)
   localStorage.setItem('page', item.id);
   const page = localStorage.getItem('page');
   if (page === 'list') {

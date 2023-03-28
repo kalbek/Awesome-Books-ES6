@@ -80,7 +80,7 @@ Install this project using the cloned repo or download and use the files to your
 
 ### Usage
 
-To run the project open the index.html file in your web browser
+To run the project open the index.html file using live server in your web browser
 
 ### Run tests
 
