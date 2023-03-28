@@ -1,5 +1,5 @@
 import Book from './Book.js';
-// update UI of the list books section 
+// update UI of the list books section
 export const createBookList = (bookList) => {
   const books = Book.getBooks();
   bookList.innerHTML = '';
