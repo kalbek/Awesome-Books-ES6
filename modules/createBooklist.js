@@ -1,5 +1,6 @@
-import { removeBooks } from "./removeBooks.js";
-export const createBookList = (bookList, books) => {
+import Book from "./Book.js";
+export const createBookList = (bookList) => {
+  const books = Book.getBooks();
   bookList.innerHTML = "";
   books.forEach((book) => {
     bookList.innerHTML += `
@@ -18,13 +19,13 @@ export const createBookList = (bookList, books) => {
       </div>
         `;
   });
+  // create an event listener for every newly created remove button
   books.forEach((book) => {
-    // create an event listener for every newly created remove button
-    const removeButton = document.getElementById(book.id.toString());
+    let bookId = Number(book.id);
+    const removeButton = document.getElementById(bookId.toString());
     if (removeButton !== null) {
       removeButton.addEventListener("click", () => {
-        const bookId = Number(book.id);
-        removeBooks(bookId, books, bookList);
+        Book.removeBook(bookId);
       });
     }
   });
