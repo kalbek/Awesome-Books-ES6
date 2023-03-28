@@ -1,6 +1,6 @@
 import Book from './modules/Book.js';
-import { createBookList } from './modules/createBookList.js';
-import { handleSelections } from './modules/handleSelections.js';
+import BookMenu from './modules/handleSelections.js';
+import BookList from './modules/BookList.js';
 import { DateTime } from './modules/luxon.js';
 
 const addButton = document.getElementById('add-books');
@@ -11,15 +11,15 @@ const authors = document.getElementById('author');
 // handle nav menu links selections
 const add = document.getElementById('add');
 add.addEventListener('click', () => {
-  handleSelections(add);
+  BookMenu.handleSelections(add);
 });
 const list = document.getElementById('list');
 list.addEventListener('click', () => {
-  handleSelections(list);
+  BookMenu.handleSelections(list);
 });
 const contact = document.getElementById('contact');
 contact.addEventListener('click', () => {
-  handleSelections(contact);
+  BookMenu.handleSelections(contact);
 });
 
 //   handle button click event for add books
@@ -28,7 +28,7 @@ addButton.addEventListener('click', (e) => {
   titles.value = '';
   authors.value = '';
   e.preventDefault();
-  createBookList(bookList);
+  BookList.createBookList(bookList);
 });
 
 // display date and time
@@ -39,5 +39,5 @@ document.getElementById('dates').innerHTML = dateTime.toLocaleString(
 
 // preserve data on browsers on page load
 window.onload = () => {
-  createBookList(bookList);
+  BookList.createBookList(bookList);
 };

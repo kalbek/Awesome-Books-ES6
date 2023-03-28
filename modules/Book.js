@@ -1,4 +1,4 @@
-import { createBookList } from '@/modules/createBookList.js';
+import BookList from './BookList.js';
 
 export default class Book {
   // initialize book title and author
@@ -51,6 +51,6 @@ export default class Book {
       }
     });
     localStorage.setItem('books', JSON.stringify(books));
-    createBookList(bookList);
+    BookList.createBookList(bookList);
   };
 }
