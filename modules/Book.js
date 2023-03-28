@@ -1,4 +1,4 @@
-import { createBookList } from '../modules/createBookList.js';
+import { createBookList } from '@/modules/createBookList.js';
 
 export default class Book {
   // initialize book title and author
