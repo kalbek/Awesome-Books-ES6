@@ -1,4 +1,4 @@
-import Book from './Book.js';
+import Book from '../modules/Book.js';
 // update UI of the list books section
 export const createBookList = (bookList) => {
   const books = Book.getBooks();
