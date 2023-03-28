@@ -14,6 +14,7 @@ export default class Book {
       id: books.length,
     });
     localStorage.setItem("books", JSON.stringify(books));
+    document.getElementById("titles").focus()
   };
   // get single book by ID
   static getBook = (id) => {
@@ -39,6 +40,11 @@ export default class Book {
     const bookList = document.querySelector(".book-list");
     let books = Book.getBooks();
     books = books.filter((book) => book.id !== id);
+    books.forEach((book) => {
+      if (book.id > id) {
+        book.id -= 1;
+      }
+    });
     localStorage.setItem("books", JSON.stringify(books));
     createBookList(bookList);
   };
