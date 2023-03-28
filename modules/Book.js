@@ -1,21 +1,24 @@
-import { createBookList } from "./createBookList.js";
+import { createBookList } from './createBookList.js';
+
 export default class Book {
   // initialize book title and author
   constructor(title, author) {
     this.title = title;
     this.author = author;
   }
+
   // add books to book lists
   static setBook = (titles, authors) => {
-    let books = Book.getBooks();
+    const books = Book.getBooks();
     books.push({
       title: titles,
       author: authors,
       id: books.length,
     });
-    localStorage.setItem("books", JSON.stringify(books));
-    document.getElementById("titles").focus()
+    localStorage.setItem('books', JSON.stringify(books));
+    document.getElementById('titles').focus();
   };
+
   // get single book by ID
   static getBook = (id) => {
     let currentBook;
@@ -24,20 +27,22 @@ export default class Book {
     });
     return currentBook;
   };
+
   // get all books
   static getBooks = () => {
     let books;
     if (
-      localStorage.getItem("books") === null ||
-      localStorage.getItem("books") === undefined
+      localStorage.getItem('books') === null
+      || localStorage.getItem('books') === undefined
     ) {
       books = [];
-    } else books = JSON.parse(localStorage.getItem("books"));
+    } else books = JSON.parse(localStorage.getItem('books'));
     return books;
   };
+
   // remove a book by id
   static removeBook = (id) => {
-    const bookList = document.querySelector(".book-list");
+    const bookList = document.querySelector('.book-list');
     let books = Book.getBooks();
     books = books.filter((book) => book.id !== id);
     books.forEach((book) => {
@@ -45,7 +50,7 @@ export default class Book {
         book.id -= 1;
       }
     });
-    localStorage.setItem("books", JSON.stringify(books));
+    localStorage.setItem('books', JSON.stringify(books));
     createBookList(bookList);
   };
 }
